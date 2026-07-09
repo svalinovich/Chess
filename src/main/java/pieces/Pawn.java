@@ -33,12 +33,16 @@ public class Pawn extends Piece {
                 candidateMoves.add(new Move(Move.positionToString(new Position(row + 1, col))));
             }
 
-            if (board.getBoard()[row + 1][col + 1] != null) {
-                candidateMoves.add(new Move(Move.positionToString(new Position(row + 1, col + 1))));
+            if (col + 1 <= 7) {
+                if (board.getBoard()[row + 1][col + 1] != null && board.getBoard()[row + 1][col + 1].getColor() != getColor()) {
+                    candidateMoves.add(new Move(Move.positionToString(new Position(row + 1, col + 1))));
+                }
             }
 
-            if (board.getBoard()[row + 1][col - 1] != null) {
-                candidateMoves.add(new Move(Move.positionToString(new Position(row + 1, col - 1))));
+            if (col - 1 >= 0) {
+                if (board.getBoard()[row - 1][col - 1] != null && board.getBoard()[row + 1][col - 1].getColor() != getColor()) {
+                    candidateMoves.add(new Move(Move.positionToString(new Position(row + 1, col - 1))));
+                }
             }
         }
 
@@ -47,12 +51,16 @@ public class Pawn extends Piece {
                 candidateMoves.add(new Move(Move.positionToString(new Position(row - 1, col))));
             }
 
-            if (board.getBoard()[row - 1][col + 1] == null) {
-                candidateMoves.add(new Move(Move.positionToString(new Position(row - 1, col + 1))));
+            if (col + 1 <= 7) {
+                if (board.getBoard()[row - 1][col + 1] != null && board.getBoard()[row - 1][col + 1].getColor() != getColor()) {
+                    candidateMoves.add(new Move(Move.positionToString(new Position(row - 1, col + 1))));
+                }
             }
 
-            if (board.getBoard()[row - 1][col - 1] == null) {
-                candidateMoves.add(new Move(Move.positionToString(new Position(row - 1, col - 1))));
+            if (col - 1 >= 0) {
+                if (board.getBoard()[row - 1][col - 1] != null && board.getBoard()[row - 1][col - 1].getColor() != getColor()) {
+                    candidateMoves.add(new Move(Move.positionToString(new Position(row - 1, col - 1))));
+                }
             }
         }
 
