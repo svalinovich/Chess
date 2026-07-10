@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
         Board board = new Board();
         board.initializeBoard();
-        Scanner userInput = new Scanner(System.in);
         board.printBoard();
 
         while (true) {

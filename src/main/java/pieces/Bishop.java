@@ -22,12 +22,13 @@ public class Bishop extends Piece {
         col = getCurrentPosition().column();
         for (int i = 1; row + i < 8 && col + i < 8; i++) {
             Position position = new Position(row + i, col + i);
+            Piece piece = board.getBoard()[row + i][col + i];
 
-            if (board.getBoard()[row + i][col + i] == null) { // if empty square
+            if (piece == null) { // if empty square
                 candidateMoves.add(new Move(Move.positionToString(position)));
             }
             else {
-                if (board.getBoard()[row + i][col + i].getColor() == getColor()) // if friendly piece
+                if (piece.getColor() == getColor()) // if friendly piece
                     break;
 
                 candidateMoves.add(new Move(Move.positionToString(position)));
@@ -40,12 +41,13 @@ public class Bishop extends Piece {
         col = getCurrentPosition().column();
         for (int i = 1; row + i < 8 && col - i >= 0; i++) {
             Position position = new Position(row + i, col - i);
+            Piece piece = board.getBoard()[row + i][col - i];
 
-            if (board.getBoard()[row + i][col - i] == null) { // if empty square
+            if (piece == null) { // if empty square
                 candidateMoves.add(new Move(Move.positionToString(position)));
             }
             else {
-                if (board.getBoard()[row + i][col - i].getColor() == getColor()) // if friendly piece
+                if (piece.getColor() == getColor()) // if friendly piece
                     break;
 
                 candidateMoves.add(new Move(Move.positionToString(position)));
@@ -58,12 +60,13 @@ public class Bishop extends Piece {
         col = getCurrentPosition().column();
         for (int i = 1; row - i >= 0 && col + i < 8; i++) {
             Position position = new Position(row - i, col + i);
+            Piece piece = board.getBoard()[row - i][col + i];
 
-            if (board.getBoard()[row - i][col + i] == null) { // if empty square
+            if (piece == null) { // if empty square
                 candidateMoves.add(new Move(Move.positionToString(position)));
             }
             else {
-                if (board.getBoard()[row - i][col + i].getColor() == getColor()) // if friendly piece
+                if (piece.getColor() == getColor()) // if friendly piece
                     break;
 
                 candidateMoves.add(new Move(Move.positionToString(position)));
@@ -78,12 +81,13 @@ public class Bishop extends Piece {
         col = getCurrentPosition().column();
         for (int i = 1; row - i >= 0 && col - i >= 0; i++) {
             Position position = new Position(row - i, col - i);
+            Piece piece = board.getBoard()[row - i][col - i];
 
-            if (board.getBoard()[row - i][col - i] == null) { // if empty square
+            if (piece == null) { // if empty square
                 candidateMoves.add(new Move(Move.positionToString(position)));
             }
             else { // if bishop hits a piece
-                if (board.getBoard()[row - i][col - i].getColor() == getColor()) // if friendly piece
+                if (piece.getColor() == getColor()) // if friendly piece
                     break;
 
                 candidateMoves.add(new Move(Move.positionToString(position)));
